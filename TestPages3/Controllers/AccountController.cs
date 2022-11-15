@@ -12,8 +12,8 @@ namespace TestPages3.Controllers
 {
     public class AccountController : Controller
     {
-        private ApplicationContext db;
-        public AccountController(ApplicationContext context)
+        private AccoutContext db;
+        public AccountController(AccoutContext context)
         {
             db = context;
         }

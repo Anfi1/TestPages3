@@ -25,11 +25,6 @@ namespace TestPages3.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            //return Content(User.Identity.Name);
-            if (User.Identity.IsAuthenticated)
-            {
-                return View(await db.Users.ToListAsync());
-            }
             return View(await db.Users.ToListAsync());
         }
         public IActionResult Create()
