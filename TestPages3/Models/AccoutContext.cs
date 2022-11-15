@@ -4,6 +4,7 @@ namespace TestPages3.Models
 {
     public class AccoutContext : DbContext
     {
+        //
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Role> Roles { get; set; }
         public AccoutContext(DbContextOptions<AccoutContext> options)
