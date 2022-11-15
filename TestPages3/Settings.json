@@ -1,0 +1,13 @@
+{
+  "Agent": {
+    "username": "superadmin",
+    "password": "qwerty1"
+  },
+  "FontStyle": {
+    "color": "#0000ff",
+    "font-size": "14px"
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)MSSQLLocalDB;Database=master;Trusted_Connection=True;"
+  }
+}

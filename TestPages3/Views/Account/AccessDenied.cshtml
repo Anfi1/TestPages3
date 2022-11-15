@@ -1,0 +1,11 @@
+@page
+@model TestPages3.Views.Home.AccessDenied
+@{
+    ViewBag.Title = "У вас недостаточно прав";
+}
+<form asp-action="AccessDenied" asp-controller="Account">
+    <h1>У вас недостаточно прав</h1>
+    <div class="form-group">
+            <input type="submit" value="Назад" class="btn btn-default" />
+    </div>
+</form>

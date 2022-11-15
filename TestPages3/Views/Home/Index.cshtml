@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TestPages3.Models.User>
+@{
+    ViewBag.Title = "Все пользователи";
+}
+<a asp-action="Create">Добавить пользователя</a>
+<table class="table" id="table">
+	@if (!User.Identity.IsAuthenticated)
+	{
+		<tr><td>ID</td><td>Имя</td></tr>
+	}
+	else
+	{
+		<tr><td>ID</td><td>Имя</td><td>Кнопочки</td></tr>
+	}
+	@foreach (var item in Model)
+	{
+		<tr><td><a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id" style='color: #212529;font-size: 18px'>@item.Id</a></td>
+			<td>
+				<p style="font-size: 18px">@item.Name</p></td>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<td>
+					<a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">Подробнее</a> |
+					@if (User.IsInRole("admin"))
+					{
+						<a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a>
+						<a> | </a>
+						<a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Удалить</a>
+					}
+
+				</td>
+			}
+
+		</tr>
+	}
+	<style>
+#table {
+	border: 1px solid #dddddd;
+	width: 100%;
+}
+#table th {
+	border: 1px solid #dddddd;
+	font-weight: bold;
+	padding: 10px;
+	background: #efefef;
+	text-align: center;
+	vertical-align: middle;
+}
+#table td {
+	border: 1px solid #dddddd;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* Нечетные строки */
+#table tbody tr:nth-child(2n+1){
+	background: #fff;
+}
+
+/* Четные строки */
+#table tbody tr:nth-child(2n){
+	background: #F7F7F7;
+}
+</style>
+</table>
